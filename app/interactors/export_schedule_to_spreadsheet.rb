@@ -1,7 +1,7 @@
 class ExportScheduleToSpreadsheet
   include Interactor
-  VIEWERS = ["daniil.sunyaev@flatstack.com"]
-  SPREADSHEET_NAME = "VACATIONS AUTO"
+  VIEWERS = ["daniil.sunyaev@flatstack.com"].freeze
+  SPREADSHEET_NAME = "VACATIONS AUTO".freeze
 
   delegate :draft, to: :context
 
@@ -14,7 +14,7 @@ class ExportScheduleToSpreadsheet
 
     draft.each_with_index do |vacation_week, index|
       next if vacation_week.blank?
-      worksheet[2,index + 1] = vacation_week.user.full_name
+      worksheet[2, index + 1] = vacation_week.user.full_name
     end
     worksheet.save
   end

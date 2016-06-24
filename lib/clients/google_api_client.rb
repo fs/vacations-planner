@@ -12,7 +12,7 @@ class GoogleApiClient
   end
 
   def share_access_with(email, spreadsheet)
-    spreadsheet.acl.push({type: "user", email_address: email, role: "reader"})
+    spreadsheet.acl.push(type: "user", email_address: email, role: "reader")
   end
 
   private
