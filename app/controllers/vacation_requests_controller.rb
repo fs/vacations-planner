@@ -3,6 +3,12 @@ class VacationRequestsController < ApplicationController
   expose(:vacation_requests, ancestor: :user)
   expose(:vacation_request, attributes: :vacation_request_params)
 
+  expose(:vacation_requests_container) do
+    temp = VacationRequestsContainer.new
+    temp.concat(vacation_requests.to_a)
+    temp
+  end
+
   def index
   end
 

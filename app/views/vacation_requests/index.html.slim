@@ -24,3 +24,15 @@
               = button_to "Remove", vacation_request_path(vacation_request.id), method: :delete
 
     = link_to "Add new request", new_vacation_request_path
+
+
+    p
+      - if vacation_requests_container.valid?
+        = button_to "Submit vacations", "#"
+      - else
+        p
+          | You have something wrong with your vacation requests:
+          br
+          - vacation_requests_container.errors.full_messages.each do |message|
+            = message
+            br

@@ -11,13 +11,15 @@ class VacationRequestsContainer
   validate :elements_are_vacation_requests, :user_vacations_are_distanced,
     :at_least_one_vacation_is_long, :every_user_has_a_month_of_vacations
 
-  delegate :[], :[]=, :<<, to: :vacation_requests
-
   def initialize
     @vacation_requests = []
   end
 
   private
+
+  def method_missing(method, *args, &block)
+    @vacation_requests.send(method, *args, &block)
+  end
 
   def elements_are_vacation_requests
     @vacation_requests.compact.each do |el|
