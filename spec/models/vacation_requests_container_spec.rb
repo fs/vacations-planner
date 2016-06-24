@@ -34,7 +34,6 @@ describe VacationRequestsContainer do
     end
 
     context "with 4 vacations" do
-
       subject do
         vacation_requests = described_class.new
         vacation_requests << vacation_request_1
@@ -49,7 +48,6 @@ describe VacationRequestsContainer do
         let!(:vacation_request_2) { create :vacation_request, user: user, starts_at_week: 20, ends_at_week: 21 }
         let!(:vacation_request_3) { create :vacation_request, user: user, starts_at_week: 40, ends_at_week: 41 }
         let!(:vacation_request_4) { create :vacation_request, user: user, starts_at_week: 10, ends_at_week: 11 }
-
 
         it { is_expected.not_to be_valid }
       end

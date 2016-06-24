@@ -8,7 +8,7 @@ class FindOptimalSchedule
 
   def optimized_schedule
     requests_stack = requests
-    while(requests_stack.length > 0) do
+    until requests_stack.empty?
       request = requests_stack.pop
 
       next if place_vacation(request)
