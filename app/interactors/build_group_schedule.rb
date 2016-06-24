@@ -16,7 +16,7 @@ class BuildGroupSchedule
 
   def requests
     draft = VacationRequestsContainer.new
-    VacationRequest.joins(:user).where(users: { group_id: group_id}).each do |request|
+    VacationRequest.joins(:user).where(users: { user_group_id: group_id}).each do |request|
       draft << request
     end
     draft

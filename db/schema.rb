@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160624172133) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "full_name",              limit: 255
-    t.integer  "group_id"
+    t.integer  "user_group_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

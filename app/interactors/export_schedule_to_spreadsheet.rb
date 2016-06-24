@@ -3,7 +3,7 @@ class ExportScheduleToSpreadsheet
   VIEWERS = ["daniil.sunyaev@flatstack.com"].freeze
   SPREADSHEET_NAME = "VACATIONS AUTO".freeze
 
-  delegate :draft, to: :context
+  delegate :table, to: :context
 
   def call
     VIEWERS.each do |viewer|
@@ -12,9 +12,10 @@ class ExportScheduleToSpreadsheet
     context.url = spreadsheet.human_url
     worksheet = spreadsheet.worksheets[0]
 
-    draft.each_with_index do |vacation_week, index|
-      next if vacation_week.blank?
-      worksheet[2, index + 1] = vacation_week.user.full_name
+    table.each_with_index do |row, row_index|
+      row.each_with_index do |element, column_index|
+        worksheet[row_index + 1, column_index + 1] = element if element.present?
+      end
     end
     worksheet.save
   end
