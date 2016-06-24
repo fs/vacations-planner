@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :full_name, presence: true
 
   has_many :vacation_requests
+  belongs_to :group
 
   # GROUPS = [TEAM_LEAD, MANAGER, MOBILE_DEV, FE_DEV, DESINER, ADMINISTRATION]
   # TEAM_LEAD = "team_lead"
