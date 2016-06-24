@@ -1,0 +1,26 @@
+.row
+  .columns
+    h2
+      = title("Your vacation requests")
+
+    table
+      thead
+        th id
+        th
+          | Starts at (week)
+        th
+          | Ends at (week)
+        th Actions
+      tbody
+        - vacation_requests.each do |vacation_request|
+          tr
+            td
+              = vacation_request.id
+            td
+              = vacation_request.starts_at_week
+            td
+              = vacation_request.ends_at_week
+            td
+              = button_to "Remove", vacation_request_path(vacation_request.id), method: :delete
+
+    = link_to "Add new request", new_vacation_request_path

@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   validates :full_name, presence: true
+
+  has_many :vacation_requests
 end
