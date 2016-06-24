@@ -9,21 +9,21 @@ class VacationRequestsContainer
   attr_accessor :vacation_requests
 
   validate :elements_are_vacation_requests, :user_vacations_are_distanced,
-    :at_least_one_vacation_is_long, :every_user_has_a_month_of_vacations
+    :at_least_one_vacation_is_long, :every_user_has_a_month_of_vacations,
+    :no_overlapping_vacations
 
   def initialize
     @vacation_requests = []
   end
 
-  private
-
-  def method_missing(method, *args, &block)
-    @vacation_requests.send(method, *args, &block)
-  end
-
-  def elements_are_vacation_requests
-    @vacation_requests.compact.each do |el|
-      errors.add(:@vacation_requests, "Contains non-request elements") unless el.is_a? VacationRequest
+  def no_overlapping_vacations
+    @vacation_requests.compact.combination(2).to_a.each do |vacation_pair|
+      next unless ((vacation_pair[0].starts_at_week..vacation_pair[0].ends_at_week).to_a &
+                   (vacation_pair[1].starts_at_week..vacation_pair[1].ends_at_week).to_a).length > 1
+      errors.add(
+        :vacation_requests,
+        "Vacations with ids #{vacation_pair.map(&:id)} are overlapping"
+      )
     end
   end
 
@@ -37,6 +37,18 @@ class VacationRequestsContainer
           "Vacations with ids #{vacation_pair.map(&:id)} of user #{User.find(user_id).full_name} are planned to close"
         )
       end
+    end
+  end
+
+  private
+
+  def method_missing(method, *args, &block)
+    @vacation_requests.send(method, *args, &block)
+  end
+
+  def elements_are_vacation_requests
+    @vacation_requests.compact.each do |el|
+      errors.add(:@vacation_requests, "Contains non-request elements") unless el.is_a? VacationRequest
     end
   end
 
