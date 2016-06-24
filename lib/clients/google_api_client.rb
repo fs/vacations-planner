@@ -1,18 +1,12 @@
 class GoogleApiClient
-  def spreadsheets
-    session.spreadsheets
-  end
+  delegate :spreadsheets, to: :session
 
-  def create_spreadsheet(name)
-    session.create_spreadsheet(name)
-  end
+  delegate :create_spreadsheet, to: :session
 
-  def human_url
-    session.human_url
-  end
+  delegate :human_url, to: :session
 
   def share_access_with(email, spreadsheet)
-    spreadsheet.acl.push({type: "user", email_address: email, role: "reader"})
+    spreadsheet.acl.push(type: "user", email_address: email, role: "reader")
   end
 
   private

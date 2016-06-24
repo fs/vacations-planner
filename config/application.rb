@@ -14,6 +14,7 @@ module RailsBase
     config.autoload_paths += %W(
       #{config.root}/lib
       #{config.root}/lib/clients
+      #{config.root}/app/value_objects
     )
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
