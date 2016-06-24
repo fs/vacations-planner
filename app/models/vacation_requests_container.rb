@@ -9,7 +9,8 @@ class VacationRequestsContainer
   attr_accessor :vacation_requests
 
   validate :elements_are_vacation_requests, :user_vacations_are_distanced,
-    :at_least_one_vacation_is_long, :every_user_has_a_month_of_vacations
+    :at_least_one_vacation_is_long, :every_user_has_a_month_of_vacations,
+    :no_overlapping_vacations
 
   def initialize
     @vacation_requests = []
@@ -53,6 +54,17 @@ class VacationRequestsContainer
       errors.add(
         :vacation_requests,
         "User #{User.find(user_id).full_name} have planned vacation other than for a 28 days in a year"
+      )
+    end
+  end
+
+  def no_overlapping_vacations
+    @vacation_requests.compact.combination(2).to_a.each do |vacation_pair|
+      next unless (vacation_pair[0].starts_at_week..vacation_pair[0].ends_at_week)
+        .overlaps?(vacation_pair[1].starts_at_week..vacation_pair[1].ends_at_week)
+      errors.add(
+        :vacation_requests,
+        "Vacations with ids #{vacation_pair.map(&:id)} are overlapping"
       )
     end
   end
