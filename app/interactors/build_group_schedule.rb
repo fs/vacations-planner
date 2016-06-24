@@ -4,11 +4,10 @@ class BuildGroupSchedule
   delegate :group_id, to: :context
 
   def call
-    if requests.valid?
-      context.requests = requests
+    context.requests = if requests.valid?
+      requests
     else
-      context.requests = 
-        FindOptimalSchedule.call(requests: requests, group_id: group_id).optimized_schedule
+      FindOptimalSchedule.call(requests: requests, group_id: group_id).optimized_schedule
     end
   end
 
@@ -16,7 +15,7 @@ class BuildGroupSchedule
 
   def requests
     draft = VacationRequestsContainer.new
-    VacationRequest.joins(:user).where(users: { user_group_id: group_id}).each do |request|
+    VacationRequest.joins(:user).where(users: { user_group_id: group_id }).each do |request|
       draft << request
     end
     draft
