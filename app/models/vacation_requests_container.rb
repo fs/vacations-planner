@@ -16,15 +16,14 @@ class VacationRequestsContainer
     @vacation_requests = []
   end
 
-  private
-
-  def method_missing(method, *args, &block)
-    @vacation_requests.send(method, *args, &block)
-  end
-
-  def elements_are_vacation_requests
-    @vacation_requests.compact.each do |el|
-      errors.add(:@vacation_requests, "Contains non-request elements") unless el.is_a? VacationRequest
+  def no_overlapping_vacations
+    @vacation_requests.compact.combination(2).to_a.each do |vacation_pair|
+      next unless ((vacation_pair[0].starts_at_week..vacation_pair[0].ends_at_week).to_a &
+                   (vacation_pair[1].starts_at_week..vacation_pair[1].ends_at_week).to_a).length > 1
+      errors.add(
+        :vacation_requests,
+        "Vacations with ids #{vacation_pair.map(&:id)} are overlapping"
+      )
     end
   end
 
@@ -41,6 +40,18 @@ class VacationRequestsContainer
     end
   end
 
+  private
+
+  def method_missing(method, *args, &block)
+    @vacation_requests.send(method, *args, &block)
+  end
+
+  def elements_are_vacation_requests
+    @vacation_requests.compact.each do |el|
+      errors.add(:@vacation_requests, "Contains non-request elements") unless el.is_a? VacationRequest
+    end
+  end
+
   def at_least_one_vacation_is_long
     @vacation_requests.compact.group_by(&:user_id).each do |user_id, user_vacation_requests|
       next if user_vacation_requests.max_by(&:length_in_weeks).length_in_weeks >= MIN_WEEKS_DURATION_FOR_LONGEST_VACATION
@@ -54,17 +65,6 @@ class VacationRequestsContainer
       errors.add(
         :vacation_requests,
         "User #{User.find(user_id).full_name} have planned vacation other than for a 28 days in a year"
-      )
-    end
-  end
-
-  def no_overlapping_vacations
-    @vacation_requests.compact.combination(2).to_a.each do |vacation_pair|
-      next unless (vacation_pair[0].starts_at_week..vacation_pair[0].ends_at_week)
-        .overlaps?(vacation_pair[1].starts_at_week..vacation_pair[1].ends_at_week)
-      errors.add(
-        :vacation_requests,
-        "Vacations with ids #{vacation_pair.map(&:id)} are overlapping"
       )
     end
   end
