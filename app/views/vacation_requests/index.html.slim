@@ -25,10 +25,10 @@
 
     = link_to "Add new request", new_vacation_request_path
 
-
     p
       - if vacation_requests_container.valid?
-        = button_to "Submit vacations", "#"
+        | Your vacation request is valid. We will take into account your request and try to find
+        | the closest vacation position
       - else
         p
           | You have something wrong with your vacation requests:

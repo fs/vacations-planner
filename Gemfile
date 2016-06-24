@@ -41,6 +41,9 @@ gem "responders"
 gem "rollbar"
 gem "seedbank"
 gem "stackprof"
+gem "googleauth"
+gem "google_drive"
+gem "google-api-client"
 
 group :staging, :production do
   gem "newrelic_rpm"

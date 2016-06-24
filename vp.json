@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vacations-planer",
+  "private_key_id": "4e96f1f074dcb13b70f809f5de89aff9e18d7bac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCEMiDmkNjsGzrj\n+RXGlLx8qm3V15CPsMUZIqV6pun2byjoY90nqEAb6QflJwAPSlhL9SV9J+HeGIS7\n7LLzSFYkP99gzemJhCv0vpLp7BjgJ72MPGfACCHuaoWWyiqbUGCKKcJjbpXJV2SF\nxyrpfhUDvZrC2a75bjRSMXEJOwEWxs7HFd+y4N8BY4pPvmVeyP2IrUtEVwORvzXM\nu9WfC9cPxp+Z0eHJLzdp80XxpIJI5H7ESgmHvqbTGcArSkEBbyQAstpRmh0rg032\npP8gRFwP7BwU9vnuX7NO/Jw/1Bh7oZcR+qs/Miue4JuzmMFaXt8x9GULbjTmIcHu\nTQkytXNxAgMBAAECggEAH6BajK60pu/wy9+onQSyf2TKuDFFTYst7FCEpG5QZPu9\nHrPdkgJHrCW5FNKayg2wSCPTHzkuaVMWVltPiLKSoUOCroc0ywiK95esUDiCzwXS\n7Dz7WU7Yx1BGu4eMX/H/1q4c6mrnfO7ihrraglf+sRFoeBtaKCR8cfmQIHQ0U31O\nrij7d/3P2rZe6OGBlMvfFTOkmVhVXksw0LgsUarlEa/hSmN6/TaPXIXOuYGr5Z3Z\nrnBx1imnmJPqVof3KHJPraZogSxnQM5OPsFUVmvLKx1/iQRVLfMFIlg3EHHOWZzr\noL5Q0xyRCxZYqeqgVJi8B9Ed9PqFb1oHZhuGL55uAQKBgQC5oCeGUrNTIccUIVMe\nbE2UYH/02AoQ7PLipwlOpr5siv0F38KmKSywNuuR/k/9AI7sKIsVECGCGhzpiI/H\ne0KuWFW3PfVrN2Ay6cKkrBihP/tT/VIDHFxcdSUUoV/Yp+xBrWPq1oI2Ojuizy5s\nfxXwYYwStDNBS7KV5gyj2xfN0QKBgQC2UFwPZVljcBcWf2Wi9uZCp8PluvfJs0WF\nx9BjxTGQx/GSHR9kGyjnpRuq4jIxiKLpWh+Tt2n6DgvDYM8eKiTQ9ks9Tj6XhBJm\n14har7tOBezJfPWJmcLkmdk0b3+Eya3FHJXPyFPvEE5f9sNHsWMlC5exDjByOcR4\np8HBIi6ToQKBgDqWdwMpZRovBhOvdPmcO1xCnQBdk8fF0d+B0yk07dN6huPsvRYO\n1uEDZJTezMZQ/8s//K34OmtC7K81ABR5LhGzJdLBRo3Bm6ZWK64n91olxKC8yr7a\nm7g+7SY2zPaoAaS1Il1DuTN+a8Y2WDO8ZONLFpfssmTAjKxNQN4Sz8+RAoGBAJt9\nyDadUvK7TAW1HCM0fsiEu1B4+RL/IiFqfPJK4e5AiWj8C6TegTGoIQPKrdKPXZq2\ncc4TlYBecGvvalaozQOnvB4KWNnzG5q44qOt04tFBGIIgIYeLRm5mYXePp0rQVim\n+6Leka+Icb/o/z5rLUsQKw0oM+uIF2hsc5TcKWthAoGAberKB1qD9JdvUsQkfehJ\n10ygIz4pWb/ekuKqgY1RyeUX0PM/Ys69SYiXpJRkM6TyalRgwXLQ2uR0TJFVhXKH\nQGZF3XxM7jImbpGft2JJ1Wg0W3/Zoa8cmItqvQe15VhnfuOAZsRiUhPoY4YSZwQk\n8Vsa9IfCWsyM1x80LD1ovQo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "vacations-supervisor@vacations-planer.iam.gserviceaccount.com",
+  "client_id": "113145222260711366052",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vacations-supervisor%40vacations-planer.iam.gserviceaccount.com"
+}
