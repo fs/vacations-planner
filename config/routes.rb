@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :vacation_requests, except: %i(show)
+  resource :optimized_schedule, only: %i(show)
   # resources :vacation_requests, only: %i(new create)
 end

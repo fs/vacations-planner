@@ -1,1 +1,6 @@
-FactoryGirl.create(:user, email: "user@example.com")
+managers = FactoryGirl.create(:user_group, name: "Managers")
+administration = FactoryGirl.create(:user_group, name: "Administration")
+team_leads = FactoryGirl.create(:user_group, name: "Team Leads")
+FactoryGirl.create(:user, email: "manager@example.com", user_group: managers)
+FactoryGirl.create(:user, email: "administrative@example.com", user_group: administration)
+FactoryGirl.create(:user, email: "team_leads@example.com", user_group: team_leads)

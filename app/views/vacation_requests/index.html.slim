@@ -26,7 +26,9 @@
     = link_to "Add new request", new_vacation_request_path
 
     p
-      - if vacation_requests_container.valid?
+      - if vacation_requests_container.length == 0
+        | Please add vacation requests.
+      - elsif vacation_requests_container.valid?
         | Your vacation request is valid. We will take into account your request and try to find
         | the closest vacation position
       - else
