@@ -1,6 +1,6 @@
 class ExportScheduleToSpreadsheet
   include Interactor
-  VIEWERS = ["daniil.sunyaev@flatstack.com"].freeze
+  VIEWERS = ["daniil.sunyaev@flatstack.com", "rebase-demo@flatstack.com"].freeze
   SPREADSHEET_NAME = "VACATIONS AUTO".freeze
 
   delegate :table, to: :context
