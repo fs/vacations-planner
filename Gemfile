@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.0"
+ruby "2.5.1"
 
 gem "rails", "4.2.6"
 gem "pg"
@@ -13,7 +13,7 @@ gem "foundation-rails"
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0.0"
 gem "skim"
-gem "therubyracer", platforms: :ruby
+# gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 2.7.2"
 
 # views
@@ -52,7 +52,7 @@ end
 
 group :test do
   gem "capybara"
-  gem "capybara-webkit"
+  # gem "capybara-webkit"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
   gem "email_spec"
