@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-ruby "2.5.1"
+ruby "2.4.5"
 
-gem "rails", "4.2.6"
+gem "rails", "~> 4.2"
 gem "pg"
 
 # assets
